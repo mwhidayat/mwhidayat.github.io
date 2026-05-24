@@ -23,13 +23,30 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="teaching.html">Teaching</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
       <li><a href="talks.html">Talks</a></li>
       <li><a href="cv.html">CV</a></li>
     </ul>
   </div>
 </nav>
+
   <main class="container">
+
+    <section class="hero" style="padding-top: 1.5rem;">
+      <div class="panel-header">
+        <div class="panel-label">Research</div>
+        <h1 class="panel-title">Research-oriented projects</h1>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>CEFR Level Assessment Tool</h3>
+          <p>Machine learning-based tool for automated assessment of German text proficiency according to CEFR levels from A1 to C2. The project combines transformer-based modeling with linguistic feature extraction to support research on automatic language proficiency classification.</p>
+          <p><strong>Under Review for Publication</strong></p>
+        </article>
+      </div>
+    </section>
+
     <section class="hero" style="padding-top: 2.5rem;">
       <div class="panel-header">
         <div class="panel-label">Portfolio</div>
@@ -38,23 +55,52 @@
 
       <div class="project-grid">
         <article class="project-card">
-          <h3>Media Monitoring Dashboard</h3>
-          <p>A media monitoring dashboard covering 14,813 news articles from Detik, Kompas, and Liputan6 (November 2023 – February 2024). It displays headline ranking of candidates, outlet-level distribution, and historical trend visualizations to support narrative tracking, media visibility analysis, and communication planning.</p>
-          <p><strong>Python</strong> · <strong>Streamlit</strong> · <strong>GitHub</strong> · <strong>2024</strong></p>
+          <h3>Knowledge Graph</h3>
+          <p>A static interactive demo showing Indonesian text-to-knowledge-graph extraction with entity and relation visualization.</p>
+          <p>
+            <a href="https://mwhidayat.github.io/indonesian-kg-demo/" target="_blank" rel="noopener">View project</a>
+          </p>
         </article>
 
         <article class="project-card">
-          <h3>CEFR Level Assessment Tool</h3>
-          <p>Machine learning-based tool for automated assessment of German text proficiency according to CEFR levels (A1-C2). Uses transformer-based models and linguistic feature extraction.</p>
-          <p><strong>Python</strong> · <strong>Transformers</strong> · <strong>NLP</strong> · <strong>Under Review</strong></p>
+          <h3>Data Ingestion</h3>
+          <p>A static interactive demo simulating a data ingestion workflow from source intake to validation, staging, transformation, loading, and monitoring.</p>
+          <p>
+            <a href="https://mwhidayat.github.io/data-ingestion-demo/" target="_blank" rel="noopener">View project</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="hero" style="padding-top: 1.5rem;">
+      <div class="panel-header">
+        <div class="panel-label">Personal Projects</div>
+        <h1 class="panel-title">Data and media insight projects</h1>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Media Insight Dashboard about Election-Related News</h3>
+          <p>A Streamlit dashboard for election-related media monitoring and news visibility analysis.</p>
+          <p>
+            <a href="https://election-news-dashboard.streamlit.app/" target="_blank" rel="noopener">View project</a>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <h3>Media Insight Dashboard about Energy-Related News</h3>
+          <p>A Streamlit dashboard for energy-related media monitoring, trend exploration, and communication insight.</p>
+          <p>
+            <a href="https://mediainsight.streamlit.app/" target="_blank" rel="noopener">View project</a>
+          </p>
         </article>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
   <div class="container">
-    <p>Mochamad Wahyu Hidayat — Jakarta, Indonesia</p>
-    <p><a href="mailto:hidayatmochamadwahyu@gmail.com">hidayatmochamadwahyu@gmail.com</a></p>
+    <p>Mochamad Wahyu Hidayat — Bandung, Indonesia</p>
   </div>
 </footer>
   <script src="js/main.js"></script>
