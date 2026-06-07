@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    h1 { margin-top: 60px; font-size: 2rem; font-weight: 500; }
+    .post { margin-bottom: 32px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px; }
+    .post:last-child { border-bottom: none; }
+    .post h2 { margin-bottom: 4px; font-weight: 500; }
+    .post h2 a { color: inherit; text-decoration: none; }
+    .post h2 a:hover { color: #2563eb; }
+    .post-meta { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #64748b; margin-bottom: 8px; }
+    .tag { background: #f1f5f9; color: #64748b; font-size: 0.75rem; padding: 2px 10px; border-radius: 12px; display: inline-block; margin: 2px 4px 2px 0; }
+    .loading { color: #64748b; margin-top: 40px; }
+    .error { color: #dc2626; margin-top: 40px; }
+    .back-link { display: inline-block; margin-top: 40px; color: #2563eb; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+  <title>Blog — Mochamad Wahyu Hidayat</title>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="container">
+      <a href="index.html" class="nav-wordmark">MWH</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        Menu
+      </button>
+      <ul class="nav-links" id="site-nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Blog</h1>
+    <p style="color:#64748b;margin-bottom:40px;">Latest posts from <a href="https://why.web.id" style="color:#2563eb;text-decoration:none;">why.web.id</a></p>
+    <div id="posts"><p class="loading">Loading posts...</p></div>
+    <a href="index.html" class="back-link">&larr; Back to home</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Mochamad Wahyu Hidayat — Bandung, Indonesia</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    fetch("https://why.web.id/blog.json")
+      .then(function(r) { return r.json(); })
+      .then(function(posts) {
+        var html = "";
+        for (var i = 0; i < posts.length; i++) {
+          var p = posts[i];
+          var d = new Date(p.date);
+          var dateStr = d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+          var tagsHtml = "";
+          for (var j = 0; j < p.tags.length; j++) {
+            tagsHtml += '<span class="tag">' + p.tags[j] + "</span>";
+          }
+          html += '<div class="post">'
+            + '<div class="post-meta">' + dateStr + "</div>"
+            + '<h2><a href="https://why.web.id' + p.url + '">' + p.title + "</a></h2>"
+            + "<div>" + tagsHtml + "</div>"
+            + "</div>";
+        }
+        document.getElementById("posts").innerHTML = html;
+      })
+      .catch(function() {
+        document.getElementById("posts").innerHTML = '<p class="error">Unable to load posts. Visit <a href="https://why.web.id" style="color:#2563eb;">why.web.id</a> directly.</p>';
+      });
+  </script>
+</body>
+</html>
